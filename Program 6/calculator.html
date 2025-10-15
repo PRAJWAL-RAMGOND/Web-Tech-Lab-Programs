@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <h2>Simple Calculator</h2>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        
+        <div class="buttons">
+            <button onclick="performOperation('sum')">+</button>
+            <button onclick="performOperation('product')">*</button>
+            <button onclick="performOperation('difference')">-</button>
+            <button onclick="performOperation('quotient')">/</button>
+            <button onclick="performOperation('remainder')">%</button>
+            <button onclick="performOperation('power')">^</button>
+            <button onclick="performOperation('square')">Square</button>
+            <button onclick="performOperation('squareRoot')">Square Root</button>
+        </div>
+
+        <div id="result">
+            Result: <span id="output"></span>
+        </div>
+    </div>
+    <script>
+            function performOperation(operation) {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            let result;
+
+            switch (operation) {
+                case 'sum':
+                    result = num1 + num2;
+                    break;
+                case 'product':
+                    result = num1 * num2;
+                    break;
+                case 'difference':
+                    result = num1 - num2;
+                    break;
+                case 'quotient':
+                    result = num1 / num2;
+                    break;
+                case 'remainder':
+                    result = num1 % num2;
+                    break;
+                case 'power':
+                    result = Math.pow(num1, num2);
+                    break;
+                case 'square':
+                    result = num1 * num1;
+                    break;
+                case 'squareRoot':
+                    result = Math.sqrt(num1);
+                    break;
+                default:
+                    result = "Invalid Operation";
+            }
+
+            document.getElementById('output').innerText = result;
+        }
+    </script>
+</body>
+</html>
