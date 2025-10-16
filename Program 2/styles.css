@@ -1,0 +1,37 @@
+.headder {
+  text-align: center;
+}
+.row {
+  color: red;
+  background-color: beige;
+  border-color: black;
+}
+.col {
+  color: red;
+  background-color: beige;
+  border-color: black;
+}
+table{
+  align-content: center;
+  text-align: center;
+  width: 70%;
+  padding: 2px;
+  border-radius: 5px;
+  
+}
+tr,th{
+  padding: 2px;
+}
+.lab{
+  color: blue;
+  background-color: darkgray;
+}
+.ele{
+  color:blue;
+  background-color: rgb(213, 159, 92);
+}
+/* tr:nth-child(even){ 
+  background-color: rgba(22, 171, 191, 0.399);
+}*/
+#lunch-break{background-color: #ffff99;}
+.break{background-color: #ffbf80;}
