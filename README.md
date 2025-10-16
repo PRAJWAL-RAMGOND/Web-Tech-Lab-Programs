@@ -40,7 +40,7 @@ Each experiment demonstrates specific core web concepts — from basic HTML tags
 ## ⚙️ How to Run
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<your-username>/Web-Tech-Lab-Programs.git
+   git clone https://github.com/<your-github-username>/Web-Tech-Lab-Programs.git
 2. Open each folder in a browser or local server (e.g., XAMPP for PHP files).
 
 3. Ensure JavaScript and PHP modules are properly linked
