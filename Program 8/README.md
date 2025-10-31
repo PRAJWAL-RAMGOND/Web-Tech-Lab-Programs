@@ -4,7 +4,8 @@
    **`xampp/htdocs/`**
 
 2. Open your **XAMPP Control Panel**, start **Apache**, and then open your browser to visit:  
-   **`http://localhost/visitorCount110.php`**
+   - **`http://localhost/visitorCount110.php`** → for the first program  
+   - **`http://localhost/student.php`** → for the second program
 
 3. Create a text file in the same directory named **`visitorCount.txt`** to track visitor counts.
 
