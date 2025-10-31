@@ -3,7 +3,8 @@
 1. Add this project folder to:  
    **`xampp/htdocs/`**
 
-2. Open your **XAMPP Control Panel**, start **Apache**, click on **Admin**, and run the file in your browser.
+2. Open your **XAMPP Control Panel**, start **Apache**, and then open your browser to visit:  
+   **`http://localhost/visitorCount110.php`**
 
 3. Create a text file in the same directory named **`visitorCount.txt`** to track visitor counts.
 
