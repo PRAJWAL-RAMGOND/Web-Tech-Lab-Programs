@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON Operations</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0078d7;
+      margin-bottom: 30px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      color: #0078d7;
+      border-bottom: 2px solid #0078d7;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    textarea, input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      resize: vertical;
+    }
+
+    textarea {
+      height: 120px;
+    }
+
+    button {
+      background-color: #d73d00;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #a67a00;
+      transform: translateY(-2px);
+    }
+
+    .output {
+      background: #f0f2f5;
+      padding: 10px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin-top: 10px;
+      font-family: monospace;
+      font-size: 14px;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+  <h1>JSON OPERATIONS</h1>
+
+  <div class="container">
+    <!-- JSON to Object -->
+    <div class="section">
+      <h2>JSON -> Object</h2>
+      <textarea id="jsonText" placeholder='{"name": "Alice", "age": 25}'></textarea>
+      <button onclick="convertToObject()">Convert</button>
+      <div id="jsonObjectOutput" class="output"></div>
+    </div>
+
+    <!-- JSON to Date -->
+    <div class="section">
+      <h2>JSON -> Date</h2>
+      <textarea id="dateJson" placeholder='{"date": "2025-11-07T12:00:00Z"}'></textarea>
+      <button onclick="convertToDate()">Convert</button>
+      <div id="dateOutput" class="output"></div>
+    </div>
+
+    <!-- JSON to CSV -->
+    <div class="section">
+      <h2>JSON -> CSV</h2>
+      <textarea id="jsonToCsv" placeholder='[{"name":"Alice","age":25},{"name":"Bob","age":30}]'></textarea>
+      <button  onclick="jsonToCsv()" style="display:block; margin:10px auto;">Convert</button>
+      <div id="csvOutput" class="output"></div>
+    </div>
+
+    <!-- CSV to JSON -->
+    <div class="section">
+      <h2>CSV -> JSON</h2>
+      <textarea id="csvToJson" placeholder="name,age&#10;Alice,25&#10;Bob,30"></textarea>
+      <button onclick="csvToJson()">Convert</button>
+      <div id="jsonOutput" class="output"></div>
+    </div>
+
+    <!-- Hash Generator -->
+    <div class="section">
+      <h2>Hash Generator</h2>
+      <input id="hashInput" placeholder="Enter text to hash" />
+      <button onclick="createHash()">Generate Hash</button>
+      <div id="hashOutput" class="output"></div>
+    </div>
+  </div>
+
+  <!-- Link to external JS -->
+  <script src="script.js"></script>
+</body>
+</html>
