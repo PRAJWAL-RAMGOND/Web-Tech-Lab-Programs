@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Content and Advanced Animations</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        text-align: center;
+        background-color: #f4ebb1ff;
+    }
+    h1 {
+        text-align: center;
+    }
+    .content {
+        border: 1px solid #ec4c4cff;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    input[type="text"] {
+        padding: 5px;
+        width: 200px;
+        margin-top: 10px;
+    }
+    button {
+        padding: 5px 10px;
+        margin: 5px 0;
+        cursor: pointer;
+        background-color: cyan;
+    }
+    button:hover {
+        background-color: lightblue;
+    }
+    ul {
+        margin-top: 10px;
+    }
+    .animation-buttons {
+        text-align: center;
+        margin-top: 10px;
+    }
+    </style>
+</head>
+<body>
+    <h1>Dynamic Content and Advanced Animations</h1>
+    <div class="content">
+        <h2>Dynamic Content Appending</h2>
+        <p id="paragraph"></p>
+        <input type="text" id="userInput" placeholder="Enter content to append"><br>
+        <button id="appendContent">Append Content</button><br>
+        <h2>The content will be added at the end of the list</h2>
+        <ul id="list"></ul>
+    </div>
+    <div class="content">
+        <h2>Advanced Animations</h2>
+        <div class="box" style="width:100px; height:100px; background-color:lightblue; position:relative; margin:20px auto;"></div>
+        <div class="animation-buttons">
+            <button id="animateBox">Expand & Fade</button>
+            <button id="moveBox">Move right</button>
+            <button id="resetBox">Reset position</button>
+            <button id="rotateBox">Rotate</button>
+            <button id="colorBox">Change color</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#appendContent").click(function (){
+                const userContent = $("#userInput").val();
+                if(userContent.trim()!==""){
+                    $("#paragraph").append(" " + userContent);
+                    $("#list").append("<li>" + userContent + "</li>");
+                    $("#userInput").val("");
+                }
+                else{
+                    alert("Please enter some content to append");
+                }
+            });
+            $("#animateBox").click(function(){
+                $(".box").animate({
+                    width: "200px",
+                    height: "200px",
+                    opacity: 0.5
+                }, 1000, function(){
+                    $(this).css("background-color","orange");
+                });
+            });
+            $("#moveBox").click(function(){
+                $(".box").animate({
+                    left: "200px"
+                }, 1000);
+            });
+            $("#resetBox").click(function(){
+                $(".box").animate({
+                    left: "0",
+                    width: "100px",
+                    height: "100px",
+                    opacity: 1
+                }, 500).css("background-color","orange");
+            });
+            $("#rotateBox").click(function(){
+                $(".box").css({
+                    transform: "rotate(360deg)",
+                    transition: "transform 1s"
+                });
+            });
+            $("#colorBox").click(function(){
+                $(".box").css("background-color","red");
+            });
+        });
+    </script>
+</body>
+</html>

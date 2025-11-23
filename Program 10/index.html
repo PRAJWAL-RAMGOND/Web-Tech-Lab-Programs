@@ -1,0 +1,162 @@
+10th prog 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ajax Program</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Headings */
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        h2 {
+            margin-top: 25px;
+            color: #444;
+        }
+
+        /* Buttons */
+        button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            font-size: 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        /* Output Display Boxes */
+        #textContent,
+        #textContentJQuery,
+        #jsonContent,
+        #parsedContent {
+            background: #eef2f7;
+            margin-top: 10px;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            border-radius: 5px;
+            min-height: 30px;
+            white-space: pre-wrap;
+            font-size: 15px;
+            color: #333;
+        }
+
+        /* Preformatted JSON Block */
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 12px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>AJAX Example</h1>
+
+        <!-- AJAX without jQuery -->
+        <h2>Using AJAX without jQuery</h2>
+        <button id="loadText">Load Text File</button>
+        <div id="textContent"></div>
+
+        <!-- AJAX with jQuery -->
+        <h2>Using AJAX with jQuery</h2>
+        <button id="loadTextJQuery">Load Text File</button>
+        <div id="textContentJQuery"></div>
+
+        <!-- getJSON() with jQuery -->
+        <h2>Using getJSON() with jQuery</h2>
+        <button id="loadJSON">Load JSON Data</button>
+        <div id="jsonContent"></div>
+
+        <!-- parseJSON() with jQuery -->
+        <h2>Using parseJSON() with jQuery</h2>
+        <button id="parseJSON">Parse JSON Data</button>
+        <div id="parsedContent"></div>
+    </div>
+
+    <script>
+        // AJAX without jQuery
+        document.getElementById('loadText').addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'textfile.txt', true);
+
+            xhr.onload = function () {
+                if (this.status === 200) {
+                    document.getElementById('textContent').innerText = this.responseText;
+                } else {
+                    document.getElementById('textContent').innerText = "Error loading text file";
+                }
+            };
+            xhr.send();
+        });
+
+        // AJAX with jQuery
+        document.getElementById('loadTextJQuery').addEventListener('click', function () {
+            $.ajax({
+                url: 'textfile.txt',
+                method: 'GET',
+                success: function (data) {
+                    $('#textContentJQuery').text(data);
+                },
+                error: function () {
+                    $('#textContentJQuery').text("Error loading text file");
+                }
+            });
+        });
+
+        // getJSON() with jQuery
+        document.getElementById('loadJSON').addEventListener('click', function () {
+            $.getJSON('data.json', function (data) {
+                $('#jsonContent').html('<pre>' + JSON.stringify(data, null, 2) + '</pre>');
+            }).fail(function () {
+                $('#jsonContent').text("Error loading JSON data");
+            });
+        });
+
+        // parseJSON() with jQuery
+        document.getElementById('parseJSON').addEventListener('click', function () {
+            var jsonString = '{"name":"John","age":30,"city":"New York"}';
+            var jsonData = $.parseJSON(jsonString);
+
+            $('#parsedContent').html(
+                'Name: ' + jsonData.name + '<br>' +
+                'Age: ' + jsonData.age + '<br>' +
+                'City: ' + jsonData.city
+            );
+        });
+    </script>
+
+</body>
+</html>
